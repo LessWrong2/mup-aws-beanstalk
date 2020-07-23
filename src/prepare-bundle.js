@@ -40,6 +40,10 @@ export function injectFiles(api, name, version, appConfig) {
   destPath = api.resolvePath(bundlePath, 'bundle/start.sh');
   copy(sourcePath, destPath);
 
+  sourcePath = api.resolvePath(__dirname, './assets/preinstall.sh');
+  destPath = api.resolvePath(bundlePath, 'bundle/preinstall.sh');
+  copy(sourcePath, destPath);
+
   try {
     fs.mkdirSync(api.resolvePath(bundlePath, 'bundle/.ebextensions'));
   } catch (e) {
